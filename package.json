@@ -1,8 +1,8 @@
 {
-  "name": "darly-solutions_auth",
+  "name": "user-authorization",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://larysatymoshenko.github.io/darly-solutions_auth",
+  "homepage": "https://larysatymoshenko.github.io/user-authorization",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
     "@testing-library/jest-dom": "^5.16.2",
