@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { Form } from '../Form/Form';
+import { FormLog } from '../FormLog/FormLog ';
 import { setUser } from '../../redux/slices/userSlice';
 
 const SignUp = () => {
   const dispatch = useDispatch();
-  const { push } = useHistory();
+  const { push } = useNavigate();
 
   const handleRegister = (email, password) => {
     const auth = getAuth();
@@ -27,7 +27,7 @@ const SignUp = () => {
       .catch(console.error);
   };
 
-  return <Form title="register" handleClick={handleRegister} />;
+  return <FormLog title="register" handleClick={handleRegister} />;
 };
 
 export { SignUp };

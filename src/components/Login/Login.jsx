@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { Form } from '../Form/Form';
+import { FormLog } from '../FormLog/FormLog ';
 import { setUser } from '../../redux/slices/userSlice';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { push } = useHistory();
+  const { push } = useNavigate();
 
   const handleLogin = (email, password) => {
     const auth = getAuth();
@@ -25,7 +25,7 @@ const Login = () => {
       .catch(() => alert('Invalid user!'));
   };
 
-  return <Form title="sign in" handleClick={handleLogin} />;
+  return <FormLog title="sign in" handleClick={handleLogin} />;
 };
 
 export { Login };
