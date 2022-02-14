@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './firebase';
 import { store } from '../src/redux/store';
-import App from '../src/components/App';
+import App from './components/App/App';
 import './index.css';
 
 ReactDOM.render(

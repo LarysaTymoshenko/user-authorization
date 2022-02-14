@@ -1,16 +1,18 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { Form } from '../components/Form';
-import { setUser } from '../redux/slices/userSlice';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { Form } from '../Form/Form';
+import { setUser } from '../../redux/slices/userSlice';
 
-const Login = () => {
+const SignUp = () => {
   const dispatch = useDispatch();
   const { push } = useHistory();
 
-  const handleLogin = (email, password) => {
+  const handleRegister = (email, password) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    console.log(auth);
+
+    createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         console.log(user);
         dispatch(
@@ -22,10 +24,10 @@ const Login = () => {
         );
         push('/');
       })
-      .catch(() => alert('Invalid user!'));
+      .catch(console.error);
   };
 
-  return <Form title="sign in" handleClick={handleLogin} />;
+  return <Form title="register" handleClick={handleRegister} />;
 };
 
-export { Login };
+export { SignUp };
