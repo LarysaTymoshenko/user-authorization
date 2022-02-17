@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { Form } from '../Form/Form';
+import { FormReg } from '../FormReg/FormReg';
 import { setUser } from '../../redux/slices/userSlice';
 
 const SignUp = () => {
@@ -27,7 +27,7 @@ const SignUp = () => {
       .catch(console.error);
   };
 
-  return <Form title="register" handleClick={handleRegister} />;
+  return <FormReg title="register" handleClick={handleRegister} />;
 };
 
 export { SignUp };

@@ -1,20 +1,31 @@
+import React, { useState } from 'react';
+import Button from '@mui/material/Button';
 import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useAuth } from '../hooks/use-auth';
 import { removeUser } from '../redux/slices/userSlice';
+import ImageGallery from '../components/ImageGallery/ImageGallery';
+import Searchbar from '../components/Searchbar/Searchbar';
+import s from './Pages.module.css';
 
 const HomePage = () => {
   const dispatch = useDispatch();
 
   const { isAuth, email } = useAuth();
 
+  const [imgName, setimgName] = useState('');
+
+  const onFormSubmit = imgName => {
+    setimgName(imgName);
+  };
   return isAuth ? (
     <div>
-      <h1>Welcome</h1>
-
-      <button onClick={() => dispatch(removeUser())}>
+      <Button onClick={() => dispatch(removeUser())}>
         Log out from {email}
-      </button>
+      </Button>
+      <h1 className={s.title}> Welcome {email} ! </h1>
+      <Searchbar onSubmit={onFormSubmit} />
+      <ImageGallery imgName={imgName} />
     </div>
   ) : (
     <Redirect to="/login" />
@@ -22,3 +33,13 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+// export default function TextButtons() {
+//   return (
+//     <Stack direction="row" spacing={2}>
+//      Primary</Button>
+//       <Button disabled>Disabled</Button>
+//       <Button href="#text-buttons">Link</Button>
+//     </Stack>
+//   );
+// }

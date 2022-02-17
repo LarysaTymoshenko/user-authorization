@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { Form } from '../Form/Form';
+import { onError } from '../../utilits/toast';
+import { FormReg } from '../FormReg/FormReg';
 import { setUser } from '../../redux/slices/userSlice';
 
 const Login = () => {
@@ -22,10 +23,10 @@ const Login = () => {
         );
         push('/');
       })
-      .catch(() => alert('Invalid user!'));
+      .catch(() => onError('Invalid user!'));
   };
 
-  return <Form title="sign in" handleClick={handleLogin} />;
+  return <FormReg title="sign in" handleClick={handleLogin} />;
 };
 
 export { Login };
