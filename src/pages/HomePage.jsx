@@ -33,13 +33,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-// export default function TextButtons() {
-//   return (
-//     <Stack direction="row" spacing={2}>
-//      Primary</Button>
-//       <Button disabled>Disabled</Button>
-//       <Button href="#text-buttons">Link</Button>
-//     </Stack>
-//   );
-// }

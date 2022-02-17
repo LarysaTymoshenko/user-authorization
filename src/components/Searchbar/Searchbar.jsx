@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FcSearch } from 'react-icons/fc';
-import { toast } from 'react-toastify';
+import { onWarning } from '../../utilits/toast';
 import PropTypes from 'prop-types';
 import s from './Searchbar.module.css';
 
@@ -14,7 +14,7 @@ export default function Searchbar({ onSubmit }) {
     e.preventDefault();
 
     if (imgName.trim() === '') {
-      toast('Enter please request');
+      onWarning('Enter please request');
       return;
     }
     onSubmit(imgName);
